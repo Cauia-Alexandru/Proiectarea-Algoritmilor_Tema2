@@ -1,0 +1,44 @@
+                                Cauia Alexandru 324CB
+                                Tema2 Proiectarea Algoritmilor
+
+2.
+    Pentru acest task am folosit algoritmul lui Dijkstra. M-am inspirat din labul 9
+    care a fost rezolvat de echipa. Calculez drumul minim pana cand intalnesc un oras
+    barbar. Daca as face Dijkstra luand in consideratie si orasele barbare voi pierde
+    multe muchii care duc spre oras barbar, pentru ca Dijkstra calculeaza drumul minim.
+    Apoi parcurg vectorul cu orase barbare si lista de adiacenta si caut nodurile care
+    au legatura cu oras barbar si adun la distanta calculata pana atunci si costul pana
+    la oras. Astfel obtin un arraylist cu toate distantele de pe toate caile dintre
+    capitala si orase barbare. Ultimul pas este distribuirea inteligenta a fortificatiilor.
+    Sortez array-ul. Cat timp am fortofocatii, parcurg array-ul si iau cate 2 numere. Daca
+    sunt diferite si daca am suficiente fortificatii, caut doua nr diferite, calculez
+    diferenta lor. Cu un alt for parcurg pana la nr mai mare si egalez toate nr cu acesta
+    mai mare. Daca nu am sufuciente fortificatii le impart egal. La sfarstit returnez primul
+    nr din array care va fi raspunsul.
+
+3.
+    Pentru acest task am utilizat algoritmul lui Dijkstra pe care l-am modificat. Am o clasa
+    care contine coordonatele unei celule din matrice, coordonatele celulei anterioare(de unde
+    am venit), directia(cu ajutorul caruia voi tine cont de rotirile dronei, 1 pe vericala,
+    0 pe orizontala) si costul.
+    In primul rand tin cont de primii 4 vecini, pentru ca unde nu as incepe sa ma misc costul
+    va fi 0. Pun in coada obiectul format si incep algoritmul tinand cont de directie si de
+    celula anterioara(de unde vin). Apoi verific pentru toate 4 cazuri, daca celula unde urmeaza
+    sa ma misc e valida, daca directia e diferita, adaug 1 la cost, daca costul curent e mai
+    favorabil, updatez si bag in coada. Functia imi va returna matricea care va contine costurile
+    pentru fiecare celula. Apoi, la sfarsit returnez costul corespunzator indicelor destinatiei.
+
+4.
+    Parcurg cate 2 randuri din matrice si verific pe rand cate 2 masini de pe aceeasi pista.
+    daca am gasit 2 masini diferite, in hashmap masina mai buna (care e mai sus) devine
+    cheie, iar cea mai slaba o adaug in arrayList adiacent acestei chei. Adica voi avea toate
+    masinile mai slabe decat masina "cheie" in acest array list. Mai am si un array, unde
+    calculez fiecare masina cate masini mai puternice are decat ea. Adica pentru masina mai
+    slaba, in acest array la indicele corespunzator masinii voi incrementa cand voi gasi alta
+    mai buna. Cand gasesc 2 masini diferite si fac acesti pasi, fac break si caut pe urmatoarele
+    2 randuri. Astfel la sfarsit voi avea un hashmap, pentru fiecare cheie avand stocate
+    masinile mai slabe si un vector de la 1 la M unde pentru fiecare index voi avea un nr care
+    reprezinta nr de masini mai bune decat masina respectivului index.
+    Apoi caut masina care 0 concurenti mai buni, o adug in array-ul rezultat si pentru masinile
+    mai slabe ca ea decrementez nr de concurenti mai puternici, pentru ca am eliminat unul. La
+    finalul acestor 2 for-uri voi obtine array-ul rezultat care il afisez.
